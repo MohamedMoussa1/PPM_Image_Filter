@@ -15,13 +15,17 @@ int main(int argc, char *argv[]) {
          * print the error message and terminate the program. Otherwise, invoke the corresponding
          * image processing function. */
 
+        if(argc == 1) {
+		printf("Error: Expecting one command-line argument, which needs to be either 1, 2, or 3.");
+                return 1;
+	}
+	int input = strtol(argv[1], NULL ,0);
+
+
         if (argc != 2 || (input != 1 && input != 2 && input != 3)) {
                 printf("Error: Expecting one command-line argument, which needs to be either 1, 2, or 3.");
                 return 1;
         }
-        
-        int input = strtol(argv[1], NULL, 0);
-
         if (input == 1) {
                 remove_red();
         } 
